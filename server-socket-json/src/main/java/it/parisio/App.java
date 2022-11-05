@@ -1,13 +1,24 @@
 package it.parisio;
 
-/**
- * Hello world!
- *
- */
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.ArrayList;
+
 public class App 
 {
-    public static void main( String[] args )
+    public static ArrayList<Handler> handlers = new ArrayList<>();
+    public static void main( String[] args ) throws IOException
     {
-        System.out.println( "Hello World!" );
+       ServerSocket ss = new ServerSocket(12321);
+
+       while(true){
+        Socket s = ss.accept();
+        
+        Handler h = new Handler(s);
+        new Thread(h).start();
+        
+        handlers.add(h);
+       }
     }
 }
