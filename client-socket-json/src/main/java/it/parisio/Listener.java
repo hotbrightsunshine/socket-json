@@ -31,7 +31,7 @@ public class Listener implements Runnable {
                 System.out.println("RECEIVED: " + parsed.toString());
 
             } catch (IOException e) { 
-                System.out.println(e.getStackTrace());
+                break;
             }
         }
     }

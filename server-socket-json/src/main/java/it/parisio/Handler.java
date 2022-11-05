@@ -42,7 +42,7 @@ public class Handler implements Runnable {
                 String toSend = mapper.writeValueAsString(msg);
                 writer.writeBytes(toSend + "\n");
             } catch ( Exception e ) {
-                System.out.println(e.getStackTrace());
+                break;
             }
             
         }
