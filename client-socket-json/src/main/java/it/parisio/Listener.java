@@ -26,6 +26,7 @@ public class Listener implements Runnable {
     public void run() {
         while(true){
             try {
+                // Legge dal flusso
                 String str = reader.readLine();
                 Message parsed = mapper.readValue(str,Message.class);
                 System.out.println("RECEIVED: " + parsed.toString());
