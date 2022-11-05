@@ -37,7 +37,7 @@ public class App
             Message msg = new Message(str);
             String toSend = om.writeValueAsString(msg);
             
-            writer.writeBytes(toSend);
+            writer.writeBytes(toSend+"\n");
         }
     }
 }

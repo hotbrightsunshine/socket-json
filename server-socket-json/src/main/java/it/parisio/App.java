@@ -14,7 +14,7 @@ public class App
 
        while(true){
         Socket s = ss.accept();
-        
+        System.out.println("Connection accepted.");
         Handler h = new Handler(s);
         new Thread(h).start();
         

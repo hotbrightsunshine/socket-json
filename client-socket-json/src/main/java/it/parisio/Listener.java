@@ -29,8 +29,10 @@ public class Listener implements Runnable {
                 String str = reader.readLine();
                 Message parsed = mapper.readValue(str,Message.class);
                 System.out.println("RECEIVED: " + parsed.toString());
-                
-            } catch (IOException e) { }
+
+            } catch (IOException e) { 
+                System.out.println(e.getStackTrace());
+            }
         }
     }
     

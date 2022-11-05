@@ -28,8 +28,9 @@ public class Handler implements Runnable {
             String str = "";
             Message msg = null;
             try {
-                // Input da tastiera
+                // Input socket
                 str = reader.readLine();
+                System.out.println("Read " + str + ".");
 
                 // JSONMapper prende l'oggetto JSON dalla Stringa
                 msg = mapper.readValue(str, Message.class);
@@ -40,7 +41,9 @@ public class Handler implements Runnable {
                 //Rimanda il dato indietro
                 String toSend = mapper.writeValueAsString(msg);
                 writer.writeBytes(toSend + "\n");
-            } catch ( Exception e ) {}
+            } catch ( Exception e ) {
+                System.out.println(e.getStackTrace());
+            }
             
         }
     }
